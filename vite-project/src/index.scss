@@ -1,0 +1,19 @@
+@use './fonts.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    }
+
+html {
+    font-family:"Raleway", serif;
+    }
+.container {
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: auto;
+    background-color: transparent;
+}
