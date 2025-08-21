@@ -1,5 +1,6 @@
 import styles from './App.module.scss';
 import logo from './images/logo.svg'
+import SearchBar from './components/SearchBar/SearchBar.tsx'
 
 function App() {
 
@@ -15,7 +16,9 @@ function App() {
           <h1 className={styles.title}>Films</h1>
           <p className={styles.description}>List of movies and TV Shows. Start search to see the results.</p>
         </div>
+        <SearchBar />
       </div>
+      
     </>
   )
 }
