@@ -1,0 +1,73 @@
+.filmsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.filmCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  text-align: start;
+  padding: 0 0 16px;
+  width: 282px;
+  margin-bottom: 20px;
+  background-color: rgba(225, 230, 242, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .film_poster {
+    width: 266px;
+    height: 480px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .film_title {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #dfdddd;
+  }
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #767e94;
+  margin-top: 40px;
+  font-family: "Poppins";
+}
+
+.search_result_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.search_result {
+  color: #767e94;
+  font-size: 20px;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+.search_ask {
+  display: block;
+  color: #767e94;
+  font-size: 17px;
+  margin-top: 20px;
+  font-family: "Poppins";
+  font-weight: 400;
+}

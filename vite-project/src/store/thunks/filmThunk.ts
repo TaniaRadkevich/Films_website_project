@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from "axios";
+import type { Film } from '../filmSlice'
 
 export const axiosInstance = axios.create({
   baseURL: 'https://www.omdbapi.com',
 });
 
 
-export const fetchFilms = createAsyncThunk('film/fetchFilms', async (searchQuery = 'batman', { rejectWithValue }) => {
+export const fetchFilms = createAsyncThunk<Film[], string | undefined>('film/fetchFilms', async (searchQuery,{ rejectWithValue }) => {
 
     const response = await axiosInstance.get('/', {
         params: {
