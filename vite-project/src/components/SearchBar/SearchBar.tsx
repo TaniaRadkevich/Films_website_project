@@ -7,22 +7,6 @@ import type { AppDispatch } from '../../store/store';
 import { clearFilms }  from '../../store/filmSlice'; 
 
 
-// const SearchBar = () => {
-//   return (
-//     <div className={styles.searchContainer}>
-//       <span className={styles.icon}>
-//         <img src = {searchIcon} alt ='searchIcon' />
-//       </span>
-//       <input
-//         type="text"
-//         placeholder="Search Movies or TV Shows"
-//         className={styles.input}
-//       />
-//     </div>
-//   );
-// };
-
-// export default SearchBar;
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
