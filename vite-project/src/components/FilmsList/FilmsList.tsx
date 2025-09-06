@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./FilmsList.module.scss";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
-import LoadButton from "../button/LoadButton";
+import LoadButton from "../LoadButton/LoadButton";
 
 
 
@@ -51,6 +51,7 @@ if (hasSearched && items.length === 0) {
       {visibleFilms.map((film) => (
         <div key={film.imdbID} className={styles.filmCard}>
           <img className={styles.film_poster} src={film.Poster} alt={film.Title} />
+        
           <h3 className={styles.film_title}>{film.Title}</h3>
         </div>
       ))}
