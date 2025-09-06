@@ -12,20 +12,17 @@ const SearchBar = () => {
   const [query, setQuery] = useState('');
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && query.trim() !== '') {
-      e.preventDefault();
-      dispatch(fetchFilms(query));
-    }
-  };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
 
     if (value.trim() === '') {
       dispatch(clearFilms()); 
+      } else {
+      dispatch(fetchFilms({ query: value, page: 1 }));
     }
-  };
+    }
+  
 
   return (
     <div className={styles.searchContainer}>
@@ -38,10 +35,9 @@ const SearchBar = () => {
         className={styles.input}
         value={query}
         onChange={handleChange}
-        onKeyDown={handleInput} 
       />
     </div>
   );
-};
+}
 
 export default SearchBar;

@@ -1,30 +1,25 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styles from "./FilmsList.module.scss";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../store/store";
+import { useSelector,useDispatch } from "react-redux";
+import type { RootState, AppDispatch } from "../../store/store";
 import LoadButton from "../LoadButton/LoadButton";
-
+import {  fetchFilms } from "../../store/thunks/filmThunk";
 
 
 const FilmsList = () => {
-  const { items, loading, hasSearched } = useSelector(
+  const { items, loading, hasSearched, totalResults, page, query } = useSelector(
     (state: RootState) => state.films
   );
-  const [filmsAmount, setFilmsAmount] = useState(8);
-
-  useEffect(() => {
-    setFilmsAmount(8);
-  }, [items]);
+   const dispatch = useDispatch<AppDispatch>();
 
   const loadMoreFilms = () => {
-    setFilmsAmount((prevNumber) => prevNumber + 8);
+     dispatch(fetchFilms({ query, page: page + 1 }));
   }
 
-    const visibleFilms  = items.slice(0, filmsAmount);
 
-  if (loading) { return <p className={styles.loading}>Loading...</p>; 
+  if (loading && page === 0) { return <p className={styles.loading}>Loading...</p>; 
 }
-  if (!hasSearched){
+  if (!hasSearched || query.trim() === ""){
     return (
       <div className={styles.search_result_block}>
         <h2 className={styles.search_result}>
@@ -48,14 +43,14 @@ if (hasSearched && items.length === 0) {
 
   return (
     <div className={styles.filmsList}>
-      {visibleFilms.map((film) => (
+      {items.map((film) => (
         <div key={film.imdbID} className={styles.filmCard}>
           <img className={styles.film_poster} src={film.Poster} alt={film.Title} />
         
           <h3 className={styles.film_title}>{film.Title}</h3>
         </div>
       ))}
-        {items.length > visibleFilms.length && (
+        {items.length < totalResults && (
         <LoadButton buttonName="Load More" onClick={loadMoreFilms} />
       )}
     </div>

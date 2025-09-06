@@ -14,12 +14,18 @@ export interface FilmsState {
   items: Film[];
   loading: boolean;
   hasSearched: boolean;
+  totalResults: number;
+  page: number;
+  query: string;
 }
 
 const initialState: FilmsState = {
   items: [],
   loading: false,
   hasSearched: false,
+  totalResults: 0,
+  page: 0,
+  query: "",
 };
 
 export const filmsSlice = createSlice({
@@ -30,6 +36,9 @@ export const filmsSlice = createSlice({
       state.items = [];
       state.hasSearched = false;
       state.loading = false;
+      state.totalResults = 0;
+      state.page = 0;
+      state.query = "";
     },
   },
   extraReducers: (builder) => {
@@ -39,8 +48,16 @@ export const filmsSlice = createSlice({
       })
       .addCase(fetchFilms.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
         state.hasSearched = true;
+
+        if (action.payload.page === 1) {
+          state.items = action.payload.Search;
+        } else {
+          state.items = [...state.items, ...action.payload.Search];
+        }
+        state.totalResults = action.payload.totalResults;
+        state.page = action.payload.page;
+        state.query = action.payload.query;
       })
       .addCase(fetchFilms.rejected, (state) => {
         state.loading = false;
