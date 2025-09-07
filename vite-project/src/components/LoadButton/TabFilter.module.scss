@@ -1,0 +1,29 @@
+.tabFilterContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  margin-left: 8px;
+  width: 470px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.tabButton {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: #ebe9fe;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.active {
+  background: #7b6ef6;
+}

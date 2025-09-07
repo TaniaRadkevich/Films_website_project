@@ -60,6 +60,7 @@ export const filmsSlice = createSlice({
         state.query = action.payload.query;
       })
       .addCase(fetchFilms.rejected, (state) => {
+        // state.items = [];
         state.loading = false;
         state.hasSearched = true;
       });

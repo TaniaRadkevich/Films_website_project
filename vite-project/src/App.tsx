@@ -1,22 +1,21 @@
-import styles from './App.module.scss';
-import SearchBar from './components/SearchBar/SearchBar.tsx'
-import FilmsList from './components/FilmsList/FilmsList.tsx';
-import MainPage from './components/pages/MainPage.tsx';
-import ListTitle from './components/ListTitle/ListTitle.tsx';
+import styles from "./App.module.scss";
+import MainPage from "./components/pages/MainPage/MainPage.tsx";
+import FilmDetails from "./components/pages/FilmDetails/FilmDetails.tsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
     <>
+       <Router>
       <div className={styles.app_container}>
-        <MainPage />
-        <SearchBar />
-        <ListTitle title='Searched films'/>
-        <FilmsList />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/film/:imdbID" element={<FilmDetails />} />
+        </Routes>
       </div>
-      
+    </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
