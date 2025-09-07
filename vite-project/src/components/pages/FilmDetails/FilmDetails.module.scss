@@ -35,22 +35,48 @@
   object-fit: cover;
 }
 
-.film_description{
-margin-left: 80px;
+.film_description {
+  margin-left: 80px;
 }
-.film_plot{
-    font-size: 15px;
-    font-weight: 500;
-    color: #8E95A9;
-    margin-bottom: 25px;
-
+.film_plot {
+  font-size: 15px;
+  font-weight: 500;
+  color: #8e95a9;
+  margin-bottom: 25px;
+}
+.film_rating_wrapper {
+  width: 59px;
+  height: 32px;
+  margin-bottom: 24px;
+  padding: 4px;
+  background-color: rgb(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.film_rating {
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffad49;
+}
+.film_type_wrapper,
+.film_date_wrapper,
+.film_runtime_wrapper,
+.film_genres_wrapper,
+.film_actors_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
 }
 
-.film_rating{
-    
-font-size: 16px;
-font-weight: 400;
-color: #FFAD49;
-
+.label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #767e94;
+  margin-bottom: 4px;
 }
 
+.value {
+  font-size: 16px;
+  font-weight: 400;
+  color: #c3c8d4;
+  text-transform: capitalize;
+}

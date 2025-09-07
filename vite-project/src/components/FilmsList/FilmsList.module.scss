@@ -1,5 +1,5 @@
 .filmsList {
-display: grid;
+  display: grid;
   grid-template-columns: repeat(4, 290px);
   gap: 20px;
   padding: 20px;
@@ -10,7 +10,7 @@ display: grid;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   text-align: start;
   padding: 0 0 16px;
   width: 282px;
@@ -20,6 +20,7 @@ display: grid;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
@@ -68,4 +69,19 @@ display: grid;
   font-size: 17px;
   margin-top: 20px;
   font-weight: 400;
+}
+.ratingBadge {
+  position: absolute;
+  top: 55px;
+  left: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffad49;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 6px;
+  z-index: 2;
+  span {
+    margin-right: 4px;
+  }
 }

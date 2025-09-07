@@ -8,6 +8,7 @@ export interface Film {
   Year: string;
   Poster: string;
   Type: string;
+  imdbRating: string; 
 }
 
 export interface FilmsState {

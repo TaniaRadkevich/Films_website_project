@@ -6,6 +6,7 @@ import LoadButton from "../LoadButton/LoadButton";
 import { fetchFilms } from "../../store/thunks/filmThunk";
 import ListTitle from "../ListTitle/ListTitle";
 import TabFilter from "../LoadButton/TabFilter";
+import ratingIcon from "../../images/ratingIcon.svg";
 import { Link } from "react-router-dom";
 
 const FilmsList = () => {
@@ -52,7 +53,18 @@ const FilmsList = () => {
       <ListTitle title="Searched films" count={totalResults} />
       <div className={styles.filmsList}>
         {items.map((film) => (
-          <Link to={`/film/${film.imdbID}`} className={styles.filmCard}>
+          <Link
+            to={`/film/${film.imdbID}`}
+            className={styles.filmCard}
+            key={film.imdbID}
+          >
+            <div className={styles.ratingBadge}>
+              {" "}
+              <span>
+                <img src={ratingIcon} alt="ratingIcon" />
+              </span>
+              {film.imdbRating}
+            </div>
             <img
               className={styles.film_poster}
               src={film.Poster}
