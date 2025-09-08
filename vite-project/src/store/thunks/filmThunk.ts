@@ -1,10 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import type { Film } from "../filmSlice";
+import { axiosInstance } from "../../axios/axios";
 
-export const axiosInstance = axios.create({
-  baseURL: "https://www.omdbapi.com",
-});
+const apiKey = import.meta.env.VITE_API_KEY;
 
 export const fetchFilms = createAsyncThunk<
   { Search: Film[]; totalResults: number; page: number; query: string; type?: string },
@@ -14,7 +12,7 @@ export const fetchFilms = createAsyncThunk<
   try {
     const response = await axiosInstance.get("/", {
       params: {
-        apikey: "71154cc2",
+        apikey: apiKey,
         s: query,
         page,
         type: type && type !== "All" ? type.toLowerCase() : undefined,

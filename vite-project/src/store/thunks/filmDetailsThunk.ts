@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { axiosInstance } from "./filmThunk";
+import { axiosInstance } from "../../axios/axios.ts";
 import type { FilmDetails } from "../filmDetailsSlice";
 
 
